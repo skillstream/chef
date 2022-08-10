@@ -174,7 +174,9 @@ class Chef
 
         present.each do |secret|
           if secret[:name] == "PfxPass"
+            Chef::Log.warn("get_cert_password decrypt_pfx_pass(#{secret[:data]}")
             password = decrypt_pfx_pass(secret[:data])
+            Chef::Log.warn("#{password} = get_cert_password decrypt_pfx_pass(#{secret[:data]}")
             return password
           end
         end
@@ -192,6 +194,7 @@ class Chef
         size = 14
         password = SecureRandom.alphanumeric(size)
         encrypted_pass = encrypt_pfx_pass(password)
+        Chef::Log.warn("#{encrypted_pass} = encrypt_pfx_pass(#{password})")
         values = { name: "PfxPass", type: :string, data: encrypted_pass }
         @win32registry.set_value(new_path, values)
         password
