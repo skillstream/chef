@@ -24,7 +24,7 @@ Gem::Specification.new do |s|
   s.add_dependency "mixlib-archive", "~> 0.4"
   s.add_dependency "ohai", "~> 13.0"
 
-  s.add_dependency "ffi-yajl", "~> 2.2"
+  s.add_dependency "ffi-yajl", ">= 2.2"
   s.add_dependency "net-ssh", ">= 2.9", "< 5.0"
   s.add_dependency "net-ssh-multi", "~> 1.2", ">= 1.2.1"
   s.add_dependency "net-sftp", "~> 2.1", ">= 2.1.2"
